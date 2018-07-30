@@ -4,22 +4,19 @@
  *
  */
 
-import { fromJS } from 'immutable';
-
+import { combineReducers } from 'redux';
 import { CHANGE_LOCALE } from './constants';
 import { DEFAULT_LOCALE } from '../../i18n'; // eslint-disable-line
 
-export const initialState = fromJS({
-  locale: DEFAULT_LOCALE,
-});
-
-function languageProviderReducer(state = initialState, action) {
+const locale = (state = DEFAULT_LOCALE, action) => {
   switch (action.type) {
     case CHANGE_LOCALE:
-      return state.set('locale', action.locale);
+      return action.locale;
     default:
       return state;
   }
-}
+};
 
-export default languageProviderReducer;
+export default combineReducers({
+  locale,
+});
