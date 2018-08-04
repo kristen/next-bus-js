@@ -17,6 +17,7 @@ import reducer from './reducer';
 import saga from './saga';
 import * as actions from './actions';
 import BusRoute from '../../components/BusRoute';
+import Button from './Button';
 
 /* eslint-disable react/prefer-stateless-function */
 export class NextBusHomePage extends React.Component {
@@ -25,10 +26,14 @@ export class NextBusHomePage extends React.Component {
   }
 
   render() {
-    const { routes } = this.props;
+    const { routes, selectRoute } = this.props;
     return (
       <div>
-        {routes.map(route => <BusRoute key={route.tag} route={route} />)}
+        {routes.map(route => (
+          <Button key={route.tag} onClick={() => selectRoute(route)}>
+            <BusRoute route={route} />
+          </Button>
+        ))}
       </div>
     );
   }
@@ -37,6 +42,7 @@ export class NextBusHomePage extends React.Component {
 NextBusHomePage.propTypes = {
   requestRoutes: PropTypes.func.isRequired,
   routes: PropTypes.array,
+  selectRoute: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
