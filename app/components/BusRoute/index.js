@@ -10,11 +10,13 @@ import BusTag from '../BusTag';
 import Wrapper from './Wrapper';
 import BusText from './BusText';
 
-const size = 70;
+const size = 50;
 
 const BusRoute = ({ route }) => (
   <Wrapper>
-    <BusTag size={size}>{route.tag}</BusTag>
+    <BusTag size={size} color={route.color} oppositeColor={route.oppositeColor}>
+      {route.tag}
+    </BusTag>
     <BusText size={size}>{route.title}</BusText>
   </Wrapper>
 );
