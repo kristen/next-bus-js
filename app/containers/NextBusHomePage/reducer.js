@@ -16,7 +16,7 @@ export const routes = (state = [], action) => {
     case REQUEST_ROUTES:
       return state;
     case REQUEST_ROUTES_SUCCESS:
-      return action.response.data.route;
+      return action.response.route;
     case REQUEST_ROUTES_FAILURE:
       return [];
     default:

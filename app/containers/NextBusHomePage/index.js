@@ -16,6 +16,7 @@ import { makeSelectRoutes } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import * as actions from './actions';
+import BusRoute from '../../components/BusRoute';
 
 /* eslint-disable react/prefer-stateless-function */
 export class NextBusHomePage extends React.Component {
@@ -25,7 +26,7 @@ export class NextBusHomePage extends React.Component {
 
   render() {
     const { routes } = this.props;
-    return <div>{routes.length}</div>;
+    return <div>{routes.map(route => <BusRoute route={route} />)}</div>;
   }
 }
 
