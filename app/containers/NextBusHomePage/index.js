@@ -26,7 +26,11 @@ export class NextBusHomePage extends React.Component {
 
   render() {
     const { routes } = this.props;
-    return <div>{routes.map(route => <BusRoute route={route} />)}</div>;
+    return (
+      <div>
+        {routes.map(route => <BusRoute key={route.tag} route={route} />)}
+      </div>
+    );
   }
 }
 
