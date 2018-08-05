@@ -7,7 +7,11 @@ import {
 } from './constants';
 
 // worker Saga: will be fired on REQUEST_ROUTE actions
-function* fetchRoute(routeTag) {
+function* fetchRoute({
+  match: {
+    params: { routeTag },
+  },
+}) {
   try {
     const response = yield call(getRoute, routeTag);
     yield put({ type: REQUEST_ROUTE_SUCCESS, response });
@@ -17,10 +21,6 @@ function* fetchRoute(routeTag) {
 }
 
 // Individual exports for testing
-export default function* routeSaga({
-  match: {
-    params: { routeTag },
-  },
-}) {
-  yield takeLatest(REQUEST_ROUTE, fetchRoute, routeTag);
+export default function* routeSaga() {
+  yield takeLatest(REQUEST_ROUTE, fetchRoute);
 }

@@ -17,7 +17,7 @@ import reducer from './reducer';
 import saga from './saga';
 import * as actions from './actions';
 import BusRoute from '../../components/BusRoute';
-import Button from './Button';
+import BusRouteDirection from '../../components/BusRouteDirection';
 
 /* eslint-disable react/prefer-stateless-function */
 export class NextBusHomePage extends React.Component {
@@ -30,9 +30,16 @@ export class NextBusHomePage extends React.Component {
     return (
       <div>
         {routes.map(route => (
-          <Button key={route.tag} to={`/route/${route.tag}`}>
+          <div key={route.tag}>
             <BusRoute {...route} />
-          </Button>
+            {route.direction.map(direction => (
+              <BusRouteDirection
+                key={direction.tag}
+                {...direction}
+                routeTag={route.tag}
+              />
+            ))}
+          </div>
         ))}
       </div>
     );

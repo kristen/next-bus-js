@@ -24,7 +24,12 @@ export class BusRouteDetail extends React.Component {
   }
 
   render() {
-    return <div>{this.props.match.params.routeTag}</div>;
+    return (
+      <div>
+        <div>{this.props.match.params.routeTag}</div>
+        <div>{this.props.match.params.direction}</div>
+      </div>
+    );
   }
 }
 
