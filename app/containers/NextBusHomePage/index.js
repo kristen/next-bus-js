@@ -26,12 +26,12 @@ export class NextBusHomePage extends React.Component {
   }
 
   render() {
-    const { routes, selectRoute } = this.props;
+    const { routes } = this.props;
     return (
       <div>
         {routes.map(route => (
-          <Button key={route.tag} onClick={() => selectRoute(route)}>
-            <BusRoute route={route} />
+          <Button key={route.tag} to={`/route/${route.tag}`}>
+            <BusRoute {...route} />
           </Button>
         ))}
       </div>
@@ -42,7 +42,6 @@ export class NextBusHomePage extends React.Component {
 NextBusHomePage.propTypes = {
   requestRoutes: PropTypes.func.isRequired,
   routes: PropTypes.array,
-  selectRoute: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

@@ -12,17 +12,20 @@ import BusText from './BusText';
 
 const size = 50;
 
-const BusRoute = ({ route }) => (
+const BusRoute = ({ tag, title, color, oppositeColor }) => (
   <Wrapper>
-    <BusTag size={size} color={route.color} oppositeColor={route.oppositeColor}>
-      {route.tag}
+    <BusTag size={size} color={color} oppositeColor={oppositeColor}>
+      {tag}
     </BusTag>
-    <BusText size={size}>{route.title}</BusText>
+    <BusText size={size}>{title}</BusText>
   </Wrapper>
 );
 
 BusRoute.propTypes = {
-  route: PropTypes.object,
+  tag: PropTypes.string,
+  title: PropTypes.string,
+  color: PropTypes.string,
+  oppositeColor: PropTypes.string,
 };
 
 export default BusRoute;

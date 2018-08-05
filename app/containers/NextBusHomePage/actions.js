@@ -2,7 +2,6 @@ import {
   REQUEST_ROUTES,
   REQUEST_ROUTES_SUCCESS,
   REQUEST_ROUTES_FAILURE,
-  SELECT_ROUTE,
 } from './constants';
 
 /*
@@ -23,9 +22,4 @@ export const requestRoutesSuccess = response => ({
 export const requestRoutesFailure = error => ({
   type: REQUEST_ROUTES_FAILURE,
   error,
-});
-
-export const selectRoute = route => ({
-  type: SELECT_ROUTE,
-  route,
 });

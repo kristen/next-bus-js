@@ -15,6 +15,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import NextBusHomePage from 'containers/NextBusHomePage/Loadable';
+import BusRouteDetail from 'containers/BusRouteDetail';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
     <div>
       <Switch>
         <Route exact path="/" component={NextBusHomePage} />
+        <Route path="/route/:routeTag" component={BusRouteDetail} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

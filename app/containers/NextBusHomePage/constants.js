@@ -9,4 +9,3 @@ export const REQUEST_ROUTES_SUCCESS =
   'app/NextBusHomePage/REQUEST_ROUTES_SUCCESS';
 export const REQUEST_ROUTES_FAILURE =
   'app/NextBusHomePage/REQUEST_ROUTES_FAILURE';
-export const SELECT_ROUTE = 'app/NextBusHomePage/SELECT_ROUTE';
